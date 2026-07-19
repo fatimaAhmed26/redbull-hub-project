@@ -49,9 +49,16 @@ const create = async (req,res)=>{
         } )
 
   }
-
+const findRedbull= async(req,res)=>{
+  const redbull = await Redbull.findById(req.params.id)
+   res.render('./redbull/show.ejs',{
+            redbull,
+            
+        })
+}
     module.exports={
         showNewForm,
         create,
         index,
+        findRedbull,
     }
