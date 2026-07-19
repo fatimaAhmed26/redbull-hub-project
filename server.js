@@ -65,8 +65,10 @@ app.get('/dashboard', async (req, res) => {
     })
 })
 // redbull routes 
-app.get('/redbull/new',redbullCtrl.showNewForm)
-app.post('/redbulls',upload.single('image'),redbullCtrl.create)
+app.get('/redbulls/new',isSignedIn,redbullCtrl.showNewForm)
+app.get ('/redbulls',isSignedIn,redbullCtrl.index)
+app.post('/redbulls',upload.single('image'),isSignedIn,redbullCtrl.create)
+
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });

@@ -41,8 +41,17 @@ const create = async (req,res)=>{
     let createRedbull= await Redbull.create(redbullData)
     res.redirect('/redbulls')
 }
+  const index = async (req,res)=>{
+    let allRedbulls = await Redbull.find()
+    res.render('./redbull/index.ejs',{
+          allRedbulls  
+    
+        } )
+
+  }
 
     module.exports={
         showNewForm,
         create,
+        index,
     }
