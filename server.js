@@ -11,8 +11,9 @@ const methodOverride = require("method-override");
 const morgan = require("morgan");
 const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
+const redbullCtrl = require('./controllers/redbullController')
+const authCtrl = require('./controllers/auth');
 
-const authCtrl = require('./controllers/auth')
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
@@ -60,6 +61,7 @@ app.get('/dashboard', async (req, res) => {
         user: req.session.user
     })
 })
+app.get('/redbull/new',redbullCtrl.showNewForm)
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

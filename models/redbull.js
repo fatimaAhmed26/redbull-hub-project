@@ -5,7 +5,7 @@ flavor:{
     required: true,
 },
 withSuger:{
- type: boolean,
+ type: Boolean
 },
 image:{
         url:{
