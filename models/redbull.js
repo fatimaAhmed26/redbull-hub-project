@@ -1,0 +1,21 @@
+const mongoose = require('mongoose')
+const redbullSchema = new mongoose.Schema({
+flavor:{
+    
+},
+withSuger:{
+
+},
+image:{
+        url:{
+            type :String,
+            required : true,
+        },
+        publicId:{
+            type: String,
+            required : true
+        }
+    },
+},{timestamps:true})
+const Redbull = mongoose.model('Redbull',redbullSchema)
+module.exports = Redbull
