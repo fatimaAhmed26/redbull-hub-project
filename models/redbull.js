@@ -17,6 +17,11 @@ image:{
             required : true
         }
     },
+       owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required: true,
+    },
 },{timestamps:true})
 const Redbull = mongoose.model('Redbull',redbullSchema)
 module.exports = Redbull

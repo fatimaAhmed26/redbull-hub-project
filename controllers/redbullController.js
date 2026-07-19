@@ -27,6 +27,7 @@ const showNewForm=(req,res)=>{
 const create = async (req,res)=>{
   const uploadedImage = await uploadImage(req.file.buffer)
     redbullData={}
+    redbullData.owner= req.session.user._id
     redbullData.flavor=req.body.flavor
         if(req.body.withSuger === 'on'){
         redbullData.withSuger =true
@@ -50,15 +51,61 @@ const create = async (req,res)=>{
 
   }
 const findRedbull= async(req,res)=>{
-  const redbull = await Redbull.findById(req.params.id)
+  const redbull = await Redbull.findById(req.params.id).populate('owner')
+  console.log(redbull,"redbull =====");
+  
    res.render('./redbull/show.ejs',{
             redbull,
             
         })
 }
+const edit= async(req,res)=>{
+  const redbull = await Redbull.findById(req.params.id)
+     res.render('./redbull/edit.ejs',{
+            redbull,
+            
+        })
+}
+
+    const update =async(req,res)=>{
+      const redbull = await Redbull.findById(req.params.id)
+        const oldPublicId = redbull.image?.publicId
+        const redbullData={}
+        redbullData.owner= req.session.user._id
+    redbullData.flavor =req.body.flavor
+    if(req.file){
+        const uploadedImage = await uploadImage(req.file.buffer)
+        redbull.image={
+            url: uploadedImage.secure_url,
+            publicId: uploadedImage.public_id,
+        }
+    }
+    if(req.body.withSuger === 'on'){
+        redbullData.withSuger =true
+
+    }else{
+        redbullData.withSuger = false
+    }
+        await Redbull.findByIdAndUpdate(req.params.id ,redbullData)
+        res.redirect(`/redbulls/${req.params.id}`)
+        
+    }
+    const deleteRedbull= async (req,res)=>{
+       const redbull = await Redbull.findById(req.params.id)
+       
+       if (redbull.owner.equals(req.session.user._id)){
+        await Redbull.findByIdAndDelete(req.params.id)
+        res.redirect('/redbulls')
+       }
+    }
+
     module.exports={
         showNewForm,
         create,
         index,
         findRedbull,
+        edit,
+        update,
+        deleteRedbull,
+
     }

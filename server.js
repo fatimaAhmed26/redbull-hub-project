@@ -43,6 +43,8 @@ app.use(session({
         mongoUrl: process.env.MONGODB_URI
     }),
 }))
+app.use(passUserToView)
+
 
 app.get('/', (req, res) => {
     res.render('home.ejs', {
@@ -69,6 +71,10 @@ app.get('/redbulls/new',isSignedIn,redbullCtrl.showNewForm)
 app.get ('/redbulls',isSignedIn,redbullCtrl.index)
 app.post('/redbulls',upload.single('image'),isSignedIn,redbullCtrl.create)
 app.get('/redbulls/:id', isSignedIn,redbullCtrl.findRedbull)
+app.get('/redbulls/:id/edit',isSignedIn,redbullCtrl.edit)
+app.put('/redbulls/:id',isSignedIn,upload.single('image'),redbullCtrl.update)
+app.delete('/redbulls/:id',isSignedIn,redbullCtrl.deleteRedbull)
+
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
