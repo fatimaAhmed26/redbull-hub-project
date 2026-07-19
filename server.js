@@ -13,6 +13,7 @@ const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
 const redbullCtrl = require('./controllers/redbullController')
 const authCtrl = require('./controllers/auth');
+const upload = require('./config/multer')
 
 
 // Set the port from environment variable or default to 3000
@@ -61,8 +62,9 @@ app.get('/dashboard', async (req, res) => {
         user: req.session.user
     })
 })
+// redbull routes 
 app.get('/redbull/new',redbullCtrl.showNewForm)
-
+app.post('/redbulls',upload.single('image'),redbullCtrl.create)
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
