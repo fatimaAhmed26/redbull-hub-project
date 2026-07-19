@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 const redbullSchema = new mongoose.Schema({
 flavor:{
-    
+    type:String,
+    required: true,
 },
 withSuger:{
-
+ type: boolean,
 },
 image:{
         url:{
