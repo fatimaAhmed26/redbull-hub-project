@@ -34,7 +34,7 @@ selectedFlavor:{
 type:mongoose.Schema.Types.ObjectId,
 ref:'Redbull',
 },
-userId:{
+owner:{
  type:mongoose.Schema.Types.ObjectId,
         ref:'User',
         

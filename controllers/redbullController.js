@@ -51,8 +51,6 @@ const create = async (req,res)=>{
   }
 const findRedbull= async(req,res)=>{
   const redbull = await Redbull.findById(req.params.id).populate('owner')
-  console.log(redbull,"redbull =====");
-  
    res.render('./redbull/show.ejs',{
             redbull,
             

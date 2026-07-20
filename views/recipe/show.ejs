@@ -1,0 +1,12 @@
+<%- include('../partials/nav') %>
+    <h2> <%= recipe.name %> </h2>
+    <h2> <%= recipe.rate %> </h2>
+    <h2> <%= recipe.description %> </h2>
+    <h2><%= findFlavor.flavor%></h2>
+
+   <%if(recipe.owner._id.equals(user._id)){ %>
+    you own this!
+
+ <% }%>
+</body>
+</html>

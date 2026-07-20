@@ -2,24 +2,16 @@ const Recipe = require('./../models/recipe')
 const Redbull= require("./../models/redbull")
 const showNewForm=async(req,res)=>{
   const findFlavor= await Redbull.find()
-  console.log(findFlavor[0].flavor);
     res.render('recipe/new.ejs',{findFlavor})
 }
 const create= async(req,res)=>{
     recipeData={}
     recipeData.owner= req.session.user._id
     recipeData.name= req.body.name
-        // console.log(findFlavor);
-
-    
     recipeData.selectedFlavor = req.body.selectedFlavor
     recipeData.description= req.body.description
     recipeData.rate=req.body.rate
-    
-    console.log(recipeData);
-    
     let createRecipe= await Recipe.create(recipeData)
-        console.log(recipeData);
 
         res.redirect('/recipes')
 }
@@ -34,8 +26,19 @@ const create= async(req,res)=>{
         } )
 
   }
+  const findRecipe= async(req,res)=>{
+    const recipe = await Recipe.findById(req.params.id).populate('owner')
+    const findFlavor= await Redbull.find()
+     res.render('./recipe/show.ejs',{
+              recipe,
+              findFlavor,
+              
+          })
+  }
 module.exports={
     showNewForm,
     create,
     index,
+    findRecipe,
+
 }

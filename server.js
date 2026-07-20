@@ -79,6 +79,7 @@ app.delete('/redbulls/:id',isSignedIn,redbullCtrl.deleteRedbull)
 app.get('/recipes/new',isSignedIn,recipeCtrl.showNewForm)
 app.post('/recipes',isSignedIn,recipeCtrl.create)
 app.get('/recipes',isSignedIn,recipeCtrl.index)
+app.get('/recipes/:id',isSignedIn,recipeCtrl.findRecipe)
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
