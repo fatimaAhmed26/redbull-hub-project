@@ -10,10 +10,6 @@ commentSchema =new mongoose.Schema({
         ref:'User',
         
 },
-name:{
-type:String,
-        required: true,
-},
 recipeId:{
     type:mongoose.Schema.Types.ObjectId,
     ref:'Recipe'
@@ -24,6 +20,10 @@ const recipeSchema = new mongoose.Schema({
 description :{
     type:String,
     required: true,
+},
+name:{
+type:String,
+        required: true,
 },
 rate:{
     type:Number,
