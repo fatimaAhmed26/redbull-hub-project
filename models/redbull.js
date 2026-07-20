@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 const redbullSchema = new mongoose.Schema({
-flavor:[{
+flavor:{
     type:String,
     required: true,
-}],
+},
 withSuger:{
  type: Boolean,
 },
