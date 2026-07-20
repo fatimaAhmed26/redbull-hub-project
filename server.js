@@ -14,6 +14,7 @@ const morgan = require("morgan");
 const session = require('express-session')
 const { MongoStore } = require('connect-mongo')
 const redbullCtrl = require('./controllers/redbullController')
+const recipeCtrl = require('./controllers/recipeController')
 const authCtrl = require('./controllers/auth');
 const upload = require('./config/multer')
 
@@ -74,6 +75,10 @@ app.get('/redbulls/:id', isSignedIn,redbullCtrl.findRedbull)
 app.get('/redbulls/:id/edit',isSignedIn,redbullCtrl.edit)
 app.put('/redbulls/:id',isSignedIn,upload.single('image'),redbullCtrl.update)
 app.delete('/redbulls/:id',isSignedIn,redbullCtrl.deleteRedbull)
+//recipe routes
+app.get('/recipes/new',isSignedIn,recipeCtrl.showNewForm)
+app.post('/recipes',isSignedIn,recipeCtrl.create)
+app.get('/recipes',isSignedIn,recipeCtrl.index)
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

@@ -1,0 +1,18 @@
+<%- include('../partials/nav') %>
+<form action="/recipes" method="post">
+    <label for="name">name</label>
+    <input type="text" name="name" id="name">
+    <br>
+    <label for="selectedFlavor">Flavor</label>
+    <input type="text" name="selectedFlavor">
+    <br>
+    <label for="description">description</label>
+    <input type="textarea" name="description">
+    <br>
+    <label for="rate">rate</label>
+    <input type="Number" name="rate" id="rate" min="0" max="10">
+    <br>
+    <button type="submit">Add recipe</button>
+    </form>
+</body>
+</html>

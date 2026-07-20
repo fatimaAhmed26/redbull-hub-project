@@ -1,7 +1,6 @@
 // enabling images 
 const cloudinary = require('../config/cloudinary')
 const Redbull = require('../models/redbull')
-const Listing = require('../models/redbull')
 const uploadImage = (fileBuffer) => {
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(

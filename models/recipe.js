@@ -10,6 +10,10 @@ commentSchema =new mongoose.Schema({
         ref:'User',
         
 },
+name:{
+type:String,
+        required: true,
+},
 recipeId:{
     type:mongoose.Schema.Types.ObjectId,
     ref:'Recipe'
@@ -28,7 +32,7 @@ rate:{
 },
 selectedFlavor:{
 type:mongoose.Schema.Types.ObjectId,
-ref:'Redbull'
+ref:'Redbull',
 },
 userId:{
  type:mongoose.Schema.Types.ObjectId,
