@@ -86,6 +86,12 @@ app.get('/recipes/:id/edit',isSignedIn,recipeCtrl.edit)
 app.put('/recipes/:id',isSignedIn,recipeCtrl.update)
 // comments routes
 app.post('/recipes/:id/comments',isSignedIn, commentCtrl.create)
+
+
+app.get('/*splat', (req,res) => {
+res.render('error.ejs',{
+    msg:404
+})})
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
