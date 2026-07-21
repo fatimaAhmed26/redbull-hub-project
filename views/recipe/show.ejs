@@ -18,9 +18,11 @@
             <button type="submit">Send</button>
          </form>
           <h3>Opinions from users</h3>
+          <%console.log(recipe,"output")%>
+          <%console.log()%>
         <% recipe.comments.forEach((item) =>{%> 
-        <p> <%= item.comments %> </p>
-        <p>asked by : <%= item.author.username %></p>
+        <p>Commented by:<%= item.author.username %></p>
+        <p> <%= item.comment %> </p>
         <%  })%>
 </body>
 </html>
