@@ -2,7 +2,8 @@
     <h1><%= user.username %>'s dashboard</h1>
    <% if (recipe){ %>
       <%   recipe.forEach((item)=>{ %>
-            <%= item.name %>
+        <H2>your recipes</H2>
+          <a href="/recipes/<%= item._id %>"><%= item.name %> </a>  
         <%  }) %>  
     <% }if(recipe.length===0){%>
   <p> you do not have any recipes</p>
