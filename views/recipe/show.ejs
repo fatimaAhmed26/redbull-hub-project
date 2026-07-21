@@ -13,9 +13,14 @@
  <% }%>
   <h2>Add your opinion about this recipe</h2>
          <form action="/recipes/<%=recipe._id %>/comments" method="post">
-            <textarea name="text" rows="4"></textarea>
+            <textarea name="comment" rows="1"></textarea>
             <br>
-            <button type="submit">Ask</button>
+            <button type="submit">Send</button>
          </form>
+          <h3>Opinions from users</h3>
+        <% recipe.comments.forEach((item) =>{%> 
+        <p> <%= item.comments %> </p>
+        <p>asked by : <%= item.author.username %></p>
+        <%  })%>
 </body>
 </html>
