@@ -1,6 +1,7 @@
 <%- include('../partials/nav') %>
+<h2>Edit your recipe</h2>
 <form action="/recipes/<%= recipe._id %>/?_method=PUT" method="post">
-    <label for="name">name</label>
+    <label for="name">Name</label>
     <input type="text" name="name" id="name" value="<%= recipe.name %>" >
     <br>
     <label for="selectedFlavor">Flavor</label>
@@ -10,10 +11,10 @@
  <%   }) %>
     </select> 
     <br>
-    <label for="description">description</label>
+    <label for="description">Description</label>
     <textarea name="description" id=""><%= recipe.description %></textarea>
     <br>
-    <label for="rate">rate</label>
+    <label for="rate">Rate</label>
     <input type="Number" name="rate" id="rate" min="0" max="10" value="<%= recipe.rate %>">
     <br>
     <button type="submit">Add recipe</button>

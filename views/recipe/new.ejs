@@ -1,6 +1,7 @@
 <%- include('../partials/nav') %>
+<h2>Share your recipe with us 💫</h2>
 <form action="/recipes" method="post">
-    <label for="name">name</label>
+    <label for="name">Name</label>
     <input type="text" name="name" id="name">
     <br>
 
@@ -13,10 +14,10 @@
  <%   }) %>
     </select> 
     <br>
-    <label for="description">description</label>
+    <label for="description">Description</label>
     <input type="textarea" name="description">
     <br>
-    <label for="rate">rate</label>
+    <label for="rate">Rate</label>
     <input type="Number" name="rate" id="rate" min="0" max="10">
     <br>
     <button type="submit">Add recipe</button>

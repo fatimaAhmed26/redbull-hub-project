@@ -11,5 +11,11 @@
 </form>
  <a href="/recipes/<%= recipe._id %>/edit"> edit </a>
  <% }%>
+  <h2>Add your opinion about this recipe</h2>
+         <form action="/recipes/<%=recipe._id %>/comments" method="post">
+            <textarea name="text" rows="4"></textarea>
+            <br>
+            <button type="submit">Ask</button>
+         </form>
 </body>
 </html>
