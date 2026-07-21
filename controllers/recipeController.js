@@ -35,10 +35,19 @@ const create= async(req,res)=>{
               
           })
   }
+      const deleteRecipe= async (req,res)=>{
+         const recipe = await Recipe.findById(req.params.id)
+         
+         if (recipe.owner.equals(req.session.user._id)){
+          await Recipe.findByIdAndDelete(req.params.id)
+          res.redirect('/recipes')
+         }
+      }
 module.exports={
     showNewForm,
     create,
     index,
     findRecipe,
+    deleteRecipe,
 
 }

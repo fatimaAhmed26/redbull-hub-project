@@ -6,7 +6,9 @@
 
    <%if(recipe.owner._id.equals(user._id)){ %>
     you own this!
-
+<form action="/recipes/<%= recipe._id %>?_method=Delete" method="post">
+    <button type="submit">Delete</button>
+</form>
  <% }%>
 </body>
 </html>
