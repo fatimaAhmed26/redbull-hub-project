@@ -1,16 +1,18 @@
 <%- include('../partials/nav') %>
-    <ul>
-    <h1>Index</h1>
-   <%   allRedbulls.forEach((item)=>{%>
-<li>
-    <a href="/redbulls/<%= item._id %>">
-      <%= item.flavor  %>  
-    </a>
-     
-    <img src="<%= item.image.url %>" alt="" with="100" height="100">
     
-</li>
-  <%   }) %>
-</ul>
+    <h1>Redbulls</h1>
+    <br>
+    <section class="cards">
+      <%   allRedbulls.forEach((item)=>{%>
+        <div class="redbulls">
+          <img src="<%= item.image.url %>" alt="" with="100" height="100">
+          <br>
+          <a href="/redbulls/<%= item._id %>">
+            <%= item.flavor  %>  
+          </a>
+        </div>
+      <%   }) %>
+    </section>
+
 </body>
 </html>
