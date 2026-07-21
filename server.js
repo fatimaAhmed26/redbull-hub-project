@@ -81,6 +81,8 @@ app.post('/recipes',isSignedIn,recipeCtrl.create)
 app.get('/recipes',isSignedIn,recipeCtrl.index)
 app.get('/recipes/:id',isSignedIn,recipeCtrl.findRecipe)
 app.delete('/recipes/:id',isSignedIn,recipeCtrl.deleteRecipe)
+app.get('/recipes/:id/edit',isSignedIn,recipeCtrl.edit)
+app.put('/recipes/:id',isSignedIn,recipeCtrl.update)
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

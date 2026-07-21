@@ -1,0 +1,22 @@
+<%- include('../partials/nav') %>
+<form action="/recipes/<%= recipe._id %>/?_method=PUT" method="post">
+    <label for="name">name</label>
+    <input type="text" name="name" id="name" value="<%= recipe.name %>" >
+    <br>
+    <label for="selectedFlavor">Flavor</label>
+    <select name="selectedFlavor">
+            <% findFlavor.forEach((item) => {%>
+        <option value="<%=item._id%>"><%=item.flavor%></option>
+ <%   }) %>
+    </select> 
+    <br>
+    <label for="description">description</label>
+    <textarea name="description" id=""><%= recipe.description %></textarea>
+    <br>
+    <label for="rate">rate</label>
+    <input type="Number" name="rate" id="rate" min="0" max="10" value="<%= recipe.rate %>">
+    <br>
+    <button type="submit">Add recipe</button>
+    </form>
+</body>
+</html>

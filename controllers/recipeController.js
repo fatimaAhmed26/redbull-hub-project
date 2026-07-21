@@ -28,7 +28,8 @@ const create= async(req,res)=>{
   }
   const findRecipe= async(req,res)=>{
     const recipe = await Recipe.findById(req.params.id).populate('owner')
-    const findFlavor= await Redbull.find()
+    const findFlavor= await Redbull.findById(recipe.selectedFlavor)
+    
      res.render('./recipe/show.ejs',{
               recipe,
               findFlavor,
@@ -43,11 +44,33 @@ const create= async(req,res)=>{
           res.redirect('/recipes')
          }
       }
+      const edit= async(req,res)=>{
+        const recipe = await Recipe.findById(req.params.id)
+        const findFlavor= await Redbull.find()
+           res.render('./recipe/edit.ejs',{
+                  recipe,
+                  findFlavor,
+                  
+              })
+      }
+      const update = async(req,res)=>{
+        const recipe = await Recipe.findById(req.params.id)
+         recipeData={}
+    recipeData.owner= req.session.user._id
+    recipeData.name= req.body.name
+    recipeData.selectedFlavor = req.body.selectedFlavor
+    recipeData.description= req.body.description
+    recipeData.rate=req.body.rate
+    let updateRecipe= await Recipe.findByIdAndUpdate(req.params.id,recipeData)
+    res.redirect(`/recipes/${req.params.id}`)
+      }
 module.exports={
     showNewForm,
     create,
     index,
     findRecipe,
     deleteRecipe,
+    edit,
+    update,
 
 }
