@@ -60,14 +60,16 @@ app.get('/auth/sign-in', authCtrl.showSignInForm)
 app.post('/auth/sign-in', authCtrl.signIn)
 app.delete('/auth/sign-out', authCtrl.signOut)
 
-app.get('/dashboard', async (req, res) => {
-    if (!req.session.user){
-        return res.redirect('/auth/sign-in')
-    }
-    res.render('dashboard.ejs', {
-        user: req.session.user
-    })
-})
+// app.get('/dashboard', async (req, res) => {
+//     if (!req.session.user){
+//         return res.redirect('/auth/sign-in')
+//     }
+//     res.render('dashboard.ejs', {
+//         user: req.session.user
+//     })
+// })
+app.get('/dashboard',isSignedIn,recipeCtrl.showRecipes)
+
 // redbull routes 
 app.get('/redbulls/new',isSignedIn,redbullCtrl.showNewForm)
 app.get ('/redbulls',isSignedIn,redbullCtrl.index)

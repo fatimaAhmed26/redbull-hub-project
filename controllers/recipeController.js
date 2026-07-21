@@ -65,6 +65,12 @@ const create= async(req,res)=>{
     let updateRecipe= await Recipe.findByIdAndUpdate(req.params.id,recipeData)
     res.redirect(`/recipes/${req.params.id}`)
       }
+      const showRecipes =async(req,res)=>{
+      const recipe = await Recipe.find({ owner: req.session.user._id})
+      res.render('dashboard.ejs',{
+        recipe,
+      })
+      }
 module.exports={
     showNewForm,
     create,
@@ -73,5 +79,6 @@ module.exports={
     deleteRecipe,
     edit,
     update,
+    showRecipes,
 
 }

@@ -1,32 +1,67 @@
-body{
-    background-color: rgba(181, 192, 212, 0.893);
+body {
+    background-color: rgba(219, 228, 246, 0.893);
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 100vw;
 }
-nav{
-    min-width:100vw;
+
+nav {
+    min-width: 100vw;
 }
-/* From Uiverse.io by Mhyar-nsi */ 
+
 button {
-  background-color: #f3f7fe;
-  color: #3b82f6;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  width: 100px;
-  height: 45px;
-  transition: 0.3s;
+    background-color: #f3f7fe;
+    color: #3b82f6;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100px;
+    height: 45px;
+    transition: 0.3s;
 }
 
 button:hover {
-  background-color: #3b82f6;
-  box-shadow: 0 0 0 5px #3b83f65f;
-  color: #fff;
+    background-color: #3b82f6;
+    box-shadow: 0 0 0 5px #3b83f65f;
+    color: #fff;
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
-    
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+    padding: 10px;
+    border: 2px solid #3678d3;
+    border-top: none;
+    font-size: 16px;
+    background: white;
+    outline: none;
+    box-shadow: 5px 5px 0px 0px #3678d3;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    color: #0B2447;
+    font-family: inherit;
+}
+
+textarea {
+    height: auto;
+    resize: vertical;
+    min-height: 80px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.4);
 }
