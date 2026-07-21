@@ -28,6 +28,8 @@ const create= async(req,res)=>{
   }
   const findRecipe= async(req,res)=>{
     const recipe = await Recipe.findById(req.params.id).populate('owner').populate('comments.author')
+    console.log(recipe);
+    
 
     const findFlavor= await Redbull.findById(recipe.selectedFlavor)
     
@@ -67,6 +69,8 @@ const create= async(req,res)=>{
       }
       const showRecipes =async(req,res)=>{
       const recipe = await Recipe.find({ owner: req.session.user._id})
+      console.log(recipe);
+      
       res.render('dashboard.ejs',{
         recipe,
       })

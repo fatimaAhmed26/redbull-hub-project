@@ -65,3 +65,9 @@ textarea:focus {
     box-shadow: none;
     background-color: rgba(255, 255, 255, 0.4);
 }
+
+.sign-out-nav{
+    text-align: right;
+    align-items: right;
+    padding-left: 1250px;
+}

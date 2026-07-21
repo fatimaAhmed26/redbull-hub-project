@@ -4,12 +4,12 @@
       <%   recipe.forEach((item)=>{ %>
             <%= item.name %>
         <%  }) %>  
-    <% }else{%>
-    you do not have any recipes
+    <% }if(recipe.length===0){%>
+  <p> you do not have any recipes</p>
+  <a href="/recipes/new">Add Recipe</a>     
+
    <% }%>
 
-     
-       
    
 </body>
 </html>
