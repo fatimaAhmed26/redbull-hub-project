@@ -11,6 +11,7 @@
 </form>
  <a href="/recipes/<%= recipe._id %>/edit"> edit </a>
  <% }%>
+ <div class="comments">
   <h2>Add your opinion about this recipe</h2>
          <form action="/recipes/<%=recipe._id %>/comments" method="post">
             <textarea name="comment" rows="1"></textarea>
@@ -18,11 +19,11 @@
             <button type="submit">Send</button>
          </form>
           <h3>Opinions from users</h3>
-          <%console.log(recipe,"output")%>
-          <%console.log()%>
+          <%.log(recipe,"output")%>
         <% recipe.comments.forEach((item) =>{%> 
         <p>Commented by:<%= item.author.username %></p>
         <p> <%= item.comment %> </p>
         <%  })%>
+    </div>
 </body>
 </html>

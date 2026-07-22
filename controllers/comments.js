@@ -5,7 +5,6 @@ const create = async(req,res)=>{
     commentData.comment = req.body.comment
     commentData.author = req.session.user._id
     recipe.comments.push(commentData)
-    console.log(commentData);
     
     await recipe.save()
     res.redirect(`/recipes/${req.params.id}`)
