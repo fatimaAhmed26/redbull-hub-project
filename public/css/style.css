@@ -19,14 +19,13 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-body > nav {
+body > nav,
+nav,
+.navbar {
     width: 100%;
-}
-
-nav {
-    max-width: 100%;
 }
 
 button {
@@ -106,42 +105,6 @@ form {
     flex-direction: column;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="password"],
-select,
-textarea {
-    width: 300px;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
-    font-family: inherit;
-    text-align: center;
-    justify-content: center;
-    color: var(--color-text);
-    background: white;
-    border: 2px solid var(--color-border);
-    border-top: none;
-    outline: none;
-    box-shadow: 5px 5px 0px 0px var(--color-border);
-    transition: all var(--transition-fast);
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="password"]:focus,
-select:focus,
-textarea:focus {
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: none;
-}
-
-textarea {
-    height: auto;
-    min-height: 80px;
-    resize: vertical;
-}
-
 .navbar > .container-fluid {
     display: flex;
     flex-wrap: wrap;
@@ -164,6 +127,37 @@ textarea {
     flex-basis: 100%;
 }
 
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    gap: 20px;
+}
+
+.redbulls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 200px;
+    margin: 15px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+}
+
+.redbulls:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 30px -10px rgba(59, 130, 246, 0.3);
+}
+
 .redbulls a {
     display: block;
     height: auto;
@@ -171,10 +165,13 @@ textarea {
     margin: 0;
     background-color: transparent;
     color: var(--color-text);
+    font-weight: 700;
+    font-size: 1rem;
     border-radius: 0;
     box-shadow: none;
     text-align: center;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .redbulls a:hover {
@@ -185,70 +182,10 @@ textarea {
 
 .redbulls img {
     display: block;
-    margin: 0 auto 10px auto;
+    max-width: 100%;
+    max-height: 110px;
+    margin: 0 auto 12px auto;
     object-fit: contain;
-}
-
-.comments {
-    width: 500px;
-    max-width: 90%;
-    margin: 40px auto;
-    text-align: left;
-}
-
-.comments h2,
-.comments h3 {
-    color: var(--color-text);
-    text-align: center;
-}
-
-.comments form {
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.comments textarea {
-    width: 100%;
-}
-
-.comments p:nth-of-type(odd) {
-    margin: 0;
-    padding-left: 4px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-accent);
-}
-
-.comments p:nth-of-type(even) {
-    margin: 4px 0 20px 0;
-    padding: 12px 16px;
-    background: white;
-    border-radius: var(--radius-sm);
-    color: var(--color-text);
-    box-shadow: 5px 5px 0px 0px var(--color-border);
-}
-
-.cards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-between;
-}
-
-.redbulls {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    width: 190px;
-    height: 170px;
-    margin: 20px;
-    background: white;
-    border-radius: var(--radius-lg);
-    box-shadow: 15px 15px 30px var(--color-border),
-                -15px -15px 30px var(--color-border);
 }
 
 .allPosts {
@@ -460,4 +397,201 @@ textarea {
 .post-button:active {
     translate: 3px 3px;
     box-shadow: 0 0 0 #000000;
+}
+
+.recipe-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.recipe-card {
+    background: #ffffff;
+    border: 3px solid #000000;
+    box-shadow: 10px 10px 0px #000000;
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.recipe-title {
+    color: var(--color-text);
+    font-size: 2rem;
+    margin: 0 0 15px 0;
+    text-transform: capitalize;
+}
+
+.recipe-tags {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    padding: 6px 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 2px solid #000000;
+    border-radius: 20px;
+}
+
+.badge.rating {
+    background-color: #fde047;
+    color: #000;
+}
+
+.badge.flavor {
+    background-color: #e0f2fe;
+    color: var(--color-border);
+}
+
+.recipe-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin-bottom: 25px;
+}
+
+.owner-actions {
+    border-top: 2px dashed #000;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.owner-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.inline-form {
+    margin: 0;
+}
+
+.edit-btn {
+    height: 38px;
+    padding: 0 20px;
+    margin: 0;
+    border: 2px solid #000;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-weight: 700;
+    box-shadow: 3px 3px 0 #000;
+}
+
+.edit-btn:hover {
+    box-shadow: 1px 1px 0 #000;
+    translate: 2px 2px;
+}
+
+.delete-btn {
+    height: 38px;
+    width: auto;
+    padding: 0 20px;
+    border: 2px solid #000;
+    background: #ef4444;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 3px 3px 0 #000;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+    color: #fff;
+    box-shadow: 1px 1px 0 #000;
+    translate: 2px 2px;
+}
+
+.comments {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.comments h2,
+.comments h3 {
+    color: var(--color-text);
+    text-align: center;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--color-text);
+    background: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px 0px 0px #000000;
+    outline: none;
+    resize: vertical;
+}
+
+.comment-form textarea:focus {
+    box-shadow: 2px 2px 0px 0px #000000;
+    translate: 3px 3px;
+}
+
+.send-btn {
+    width: 100%;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    font-weight: 700;
+    background: #4ade80;
+    color: #000;
+}
+
+.send-btn:hover {
+    background: #22c55e;
+    color: #000;
+    box-shadow: 2px 2px 0 #000;
+    translate: 2px 2px;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment-item {
+    background: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 5px 5px 0px 0px #000000;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+}
+
+.comment-author {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.comment-body {
+    margin: 0;
+    font-size: 15px;
+    color: var(--color-text);
 }

@@ -1,29 +1,47 @@
 <%- include('../partials/nav') %>
-    <h2> <%= recipe.name %> </h2>
-    <h2> <%= recipe.rate %> </h2>
-    <h2> <%= recipe.description %> </h2>
-    <h2><%= findFlavor.flavor%></h2>
 
-   <%if(recipe.owner._id.equals(user._id)){ %>
-    you own this!
-<form action="/recipes/<%= recipe._id %>?_method=Delete" method="post">
-    <button type="submit">Delete</button>
-</form>
- <a href="/recipes/<%= recipe._id %>/edit"> edit </a>
- <% }%>
- <div class="comments">
-  <h2>Add your opinion about this recipe</h2>
-         <form action="/recipes/<%=recipe._id %>/comments" method="post">
-            <textarea name="comment" rows="1"></textarea>
-            <br>
-            <button type="submit">Send</button>
-         </form>
-          <h3>Opinions from users</h3>
-          <%le.log(recipe,"output")%>
-        <% recipe.comments.forEach((item) =>{%> 
-        <p>Commented by:<%= item.author.username %></p>
-        <p> <%= item.comment %> </p>
-        <%  })%>
+<div class="recipe-container">
+  <div class="recipe-card">
+    <h1 class="recipe-title"><%= recipe.name %></h1>
+    
+    <div class="recipe-tags">
+      <span class="badge rating">★ <%= recipe.rate %> / 10</span>
+      <span class="badge flavor"><%= findFlavor.flavor %></span>
     </div>
+
+    <p class="recipe-description"><%= recipe.description %></p>
+
+    <% if (recipe.owner._id.equals(user._id)) { %>
+      <div class="owner-actions">
+        <p class="owner-badge">You own this recipe</p>
+        <div class="action-buttons">
+          <a href="/recipes/<%= recipe._id %>/edit" class="edit-btn">Edit</a>
+          <form action="/recipes/<%= recipe._id %>?_method=Delete" method="post" class="inline-form">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% } %>
+  </div>
+
+  <div class="comments">
+    <h2>Add your opinion about this recipe</h2>
+    <form action="/recipes/<%= recipe._id %>/comments" method="post" class="comment-form">
+      <textarea name="comment" rows="3" placeholder="Write your thought here..."></textarea>
+      <button type="submit" class="send-btn">Send</button>
+    </form>
+
+    <h3>Opinions from users</h3>
+    <div class="comments-list">
+      <% recipe.comments.forEach((item) => { %> 
+        <div class="comment-item">
+          <p class="comment-author">Commented by: <%= item.author.username %></p>
+          <p class="comment-body"><%= item.comment %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
