@@ -1,5 +1,6 @@
 const Recipe = require('./../models/recipe')
 const Redbull= require("./../models/redbull")
+const Post= require("./../models/post")
 const showNewForm=async(req,res)=>{
   const findFlavor= await Redbull.find()
     res.render('recipe/new.ejs',{findFlavor})
@@ -68,9 +69,12 @@ const create= async(req,res)=>{
       }
       const showRecipes =async(req,res)=>{
       const recipe = await Recipe.find({ owner: req.session.user._id})
+      const allPosts = await Post.find().populate('owner')
+      console.log(allPosts);
       
       res.render('dashboard.ejs',{
         recipe,
+        allPosts,
       })
       }
 module.exports={

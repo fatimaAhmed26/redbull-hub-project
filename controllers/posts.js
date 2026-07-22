@@ -34,6 +34,7 @@ const create = async (req,res)=>{
     let createPost= await Post.create(postData)
     res.redirect('/dashboard')
 }
+
 module.exports={
     create,
 
