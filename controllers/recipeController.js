@@ -70,7 +70,7 @@ const create= async(req,res)=>{
       const showRecipes =async(req,res)=>{
       const recipe = await Recipe.find({ owner: req.session.user._id})
       const allPosts = await Post.find().populate('owner')
-      console.log(allPosts);
+    
       
       res.render('dashboard.ejs',{
         allPosts,
