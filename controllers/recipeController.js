@@ -73,7 +73,6 @@ const create= async(req,res)=>{
       console.log(allPosts);
       
       res.render('dashboard.ejs',{
-        recipe,
         allPosts,
       })
       }
