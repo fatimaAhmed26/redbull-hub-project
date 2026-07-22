@@ -1,34 +1,35 @@
 <%- include('./partials/nav') %>
-    <h1><%= user.username %>'s dashboard</h1>
-  <!-- From Uiverse.io by vaibhavchandranv --> 
+
+<h1><%= user.username %>'s dashboard</h1>
+
 <div class="add-posts">
   <div class="head-post">share your drink post</div>
   <div class="content-post">
-   <form action="/dashboard" method="post" enctype="multipart/form-data">
+    <form action="/dashboard" method="post" enctype="multipart/form-data">
       <label for="image">Add Image</label>
-        <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/webp" required>
-        <br>
-    <label for="description">Description</label>
-        <textarea name="description" id="description" class="input-post"></textarea>
-        <br>
-    <br />
-  <button type="submit" class="post-button"> post</button>
+      <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/webp" required>
+      
+      <label for="description">Description</label>
+      <textarea name="description" id="description" class="input-post"></textarea>
+      
+      <button type="submit" class="post-button">post</button>
+    </form>
   </div>
 </div>
 
-   <br><br>
+<div class="posts-container">
   <% allPosts.forEach((item) => { %>
-  <p class="browser-warning"></p>
-  <div class="stack">
-    <div class="card">
-      <div class="image">
-        <img src="<%= item.image.url %>" alt="">
+    <div class="stack">
+      <div class="card">
+        <div class="image">
+          <img src="<%= item.image.url %>" alt="">
+        </div>
+        <p><%= item.description %></p>
+        <p>By :<%= item.owner.username %></p>
       </div>
-
-      <p><%= item.description %></p>
-      <p>By :<%= item.owner.username %></p>
     </div>
-  </div>
-<% }) %>
+  <% }) %>
+</div>
+
 </body>
 </html>

@@ -1,23 +1,31 @@
 <%- include('../partials/nav') %>
-<h2>Edit your recipe</h2>
-<form action="/recipes/<%= recipe._id %>/?_method=PUT" method="post">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" value="<%= recipe.name %>" >
-    <br>
-    <label for="selectedFlavor">Flavor</label>
-    <select name="selectedFlavor">
-            <% findFlavor.forEach((item) => {%>
-        <option value="<%=item._id%>"><%=item.flavor%></option>
- <%   }) %>
-    </select> 
-    <br>
-    <label for="description">Description</label>
-    <textarea name="description" id=""><%= recipe.description %></textarea>
-    <br>
-    <label for="rate">Rate</label>
-    <input type="Number" name="rate" id="rate" min="0" max="10" value="<%= recipe.rate %>">
-    <br>
-    <button type="submit">Add recipe</button>
+<div class="add-posts">
+  <div class="head-post">edit your recipe</div>
+  <div class="content-post">
+    <form action="/recipes/<%= recipe._id %>/?_method=PUT" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="<%= recipe.name %>" class="input-post">
+      <br>
+
+      <label for="selectedFlavor">Flavor</label>
+      <select name="selectedFlavor" class="input-post">
+        <% findFlavor.forEach((item) => { %>
+          <option value="<%= item._id %>"><%= item.flavor %></option>
+        <% }) %>
+      </select>
+      <br>
+
+      <label for="description">Description</label>
+      <textarea name="description" id="description" class="input-post"><%= recipe.description %></textarea>
+      <br>
+
+      <label for="rate">Rate</label>
+      <input type="number" name="rate" id="rate" min="0" max="10" value="<%= recipe.rate %>" class="input-post">
+      <br><br>
+
+      <button type="submit" class="post-button">Add recipe</button>
     </form>
+  </div>
+</div>
 </body>
 </html>

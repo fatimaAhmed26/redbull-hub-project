@@ -1,16 +1,23 @@
 <%- include('../partials/nav') %>
-    <h1>Crete a New Redbull</h1>
+<div class="add-posts">
+  <div class="head-post">create a new redbull</div>
+  <div class="content-post">
     <form action="/redbulls" method="post" enctype="multipart/form-data">
-        <label for="flavor">Flavor</label>
-        <input type="text" name="flavor">
-        <br>
-        <label for="withSuger">With Suger?</label>
-        <input type="checkbox" name="withSuger"> 
-        <br>
-        <label for="image">Add Image</label>
-        <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/webp" required>
-        <br>
-        <button type="submit">Add Redbull</button>
+      <label for="flavor">Flavor</label>
+      <input type="text" name="flavor" id="flavor" class="input-post">
+      <br>
+
+      <label for="withSuger">With Sugar?</label>
+      <input type="checkbox" name="withSuger" id="withSuger">
+      <br>
+
+      <label for="image">Add Image</label>
+      <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/webp" required>
+      <br><br>
+
+      <button type="submit" class="post-button">Add Redbull</button>
     </form>
+  </div>
+</div>
 </body>
 </html>

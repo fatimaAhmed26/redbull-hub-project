@@ -1,18 +1,22 @@
 <%- include('./partials/nav') %>
-    <div class="allPosts">
-   <h2>Posts</h2>
-  <% allPosts.forEach((item) => { %>
-  <p class="browser-warning"></p>
-  <div class="stack">
-    <div class="card">
-      <div class="image">
-        <img src="<%= item.image.url %>" alt="">
-      </div>
 
-      <p><%= item.description %></p>
-      <p>By :<%= item.owner.username %></p>
-    </div>
+<div class="allPosts">
+  <h2>Posts</h2>
+  
+  <div class="posts-container">
+    <% allPosts.forEach((item) => { %>
+      <div class="stack">
+        <div class="card">
+          <div class="image">
+            <img src="<%= item.image.url %>" alt="">
+          </div>
+          <p><%= item.description %></p>
+          <p>By :<%= item.owner.username %></p>
+        </div>
+      </div>
+    <% }) %>
   </div>
-<% }) %>
+</div>
+
 </body>
 </html>

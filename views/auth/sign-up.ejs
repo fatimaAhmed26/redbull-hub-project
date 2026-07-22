@@ -1,18 +1,20 @@
 <%- include('../partials/nav') %>
-    <h1>Create a new account</h1>
-<div class="form-container">
+<div class="add-posts">
+  <div class="head-post">create a new account</div>
+  <div class="content-post">
     <form action="/auth/sign-up" method="POST" class="login">
-        Username:
-        <input type="text" name="username" class="inputs"/>
-
-        Password:
-        <input type="password" name="password" class="inputs"/>
-
-        Confirm Password:
-        <input type="password" name="confirmPassword" class="inputs"/>
-        <br>
-        <button type="submit">Sign Up</button>
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" class="input-post">
+      <br>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" class="input-post">
+      <br>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" name="confirmPassword" id="confirmPassword" class="input-post">
+      <br><br>
+      <button type="submit" class="post-button">Sign Up</button>
     </form>
+  </div>
 </div>
 </body>
 </html>

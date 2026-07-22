@@ -251,149 +251,213 @@ textarea {
                 -15px -15px 30px var(--color-border);
 }
 
-/* From Uiverse.io by janisar-hyder */
+.allPosts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
 .stack {
-  width: 55%;
-  max-width: 400px;
-  transition: 0.25s ease;
+    width: 300px;
+    position: relative;
+    margin: 0;
+    transition: 0.25s ease;
 }
 
 .stack:hover {
-  transform: rotate(5deg);
-}
-
-.stack:hover .card:before {
-  transform: translatey(-2%) rotate(-4deg);
-}
-
-.stack:hover .card:after {
-  transform: translatey(2%) rotate(4deg);
+    transform: rotate(3deg);
 }
 
 .card {
-  aspect-ratio: 3 / 2;
-  border: 4px solid;
-  background: #fff;
-  position: relative;
-  transition: 0.15s ease;
-  cursor: pointer;
-  padding: 1rem;
-  padding-bottom: 1.5rem;
-  text-align: center;
+    height: auto;
+    border: 4px solid #000;
+    background: #fff;
+    position: relative;
+    transition: 0.15s ease;
+    cursor: pointer;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .card:before,
 .card:after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border: 4px solid;
-  background-color: #fff;
-  transform-origin: center center;
-  z-index: -1;
-  transition: 0.15s ease;
-  top: 0;
-  left: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 4px solid #000;
+    background-color: #fff;
+    transform-origin: center center;
+    z-index: -1;
+    transition: 0.15s ease;
+    top: -4px;
+    left: -4px;
+    box-sizing: content-box;
 }
 
 .card:before {
-  transform: translatey(-2%) rotate(-6deg);
+    transform: rotate(-4deg);
 }
 
 .card:after {
-  transform: translatey(2%) rotate(6deg);
+    transform: rotate(4deg);
+}
+
+.stack:hover .card:before {
+    transform: rotate(-2deg);
+}
+
+.stack:hover .card:after {
+    transform: rotate(2deg);
 }
 
 .card p {
-  margin: 0 0 0.5rem;
-  font-size: 0.9rem;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
 }
 
 .card:hover {
-  translate: -6px;
+    transform: translate(-4px, -4px);
 }
 
 .image {
-  width: 100%;
-  height: 300px;
-  border: 4px solid;
-  background-color: #eee;
-  overflow: hidden;
+    width: 100%;
+    height: 220px;
+    border: 3px solid #000;
+    background-color: #eee;
+    overflow: hidden;
 }
 
 .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-/* From Uiverse.io by vaibhavchandranv */
 .add-posts {
-  font-family: Montserrat, sans-serif;
-  width: 300px;
-  height: 250px;
-  translate: -6px -6px;
-  background: #ff66a3;
-  border: 3px solid #000000;
-  box-shadow: 12px 12px 0 #000000;
-  overflow: hidden;
-  transition: all 0.3s ease;
+    font-family: Montserrat, sans-serif;
+    width: 320px;
+    height: auto;
+    min-height: 250px;
+    translate: -6px -6px;
+    background: #66a8ff;
+    border: 3px solid #000000;
+    box-shadow: 12px 12px 0 #000000;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin: 20px auto;
 }
 
 .head-post {
-  font-family: Montserrat, sans-serif;
-  font-size: 14px;
-  font-weight: 900;
-  width: 100%;
-  height: 32px;
-  background: #ffffff;
-  padding: 5px 12px;
-  color: #000000;
-  border-bottom: 3px solid #000000;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+    padding: 10px 12px;
+    color: #000000;
+    border-bottom: 3px solid #000000;
+    box-sizing: border-box;
 }
 
 .content-post {
-  padding: 8px 12px;
-  font-size: 14px;
-  font-weight: 600;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.add-posts input[type="text"],
+.add-posts input[type="number"],
+.add-posts input[type="password"],
+.add-posts input[type="file"],
+.add-posts select,
+.add-posts textarea,
+.input-post {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: inherit;
+    text-align: left;
+    color: #000000;
+    background: #ffffff;
+    border: 2px solid #000000 !important;
+    border-top: 2px solid #000000 !important;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none !important;
+    transition: all var(--transition-fast);
+}
+
+.add-posts input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.add-posts input[type="text"]:focus,
+.add-posts input[type="number"]:focus,
+.add-posts select:focus,
+.add-posts textarea:focus,
+.input-post:focus {
+    background-color: #ffffff;
+    border-color: #000000;
+    box-shadow: 2px 2px 0px #000000 !important;
+}
+
+.add-posts textarea {
+    min-height: 70px;
+    resize: vertical;
 }
 
 .post-button {
-  padding: 5px 10px;
-  margin-top: 10px;
-  border: 3px solid #000000;
-  box-shadow: 3px 3px 0 #000000;
-  font-weight: 750;
-  background: #4ade80;
-  transition: all 0.3s ease;
-  cursor: pointer;
+    padding: 8px 16px;
+    margin-top: 8px;
+    width: 100%;
+    border: 3px solid #000000;
+    box-shadow: 3px 3px 0 #000000;
+    font-weight: 750;
+    background: #4ade80;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .post-button:hover {
-  translate: 1.5px 1.5px;
-  box-shadow: 1.5px 1.5px 0 #000000;
-  background: #1ac2ff;
+    translate: 1.5px 1.5px;
+    box-shadow: 1.5px 1.5px 0 #000000;
+    background: #1ac2ff;
 }
 
 .post-button:active {
-  translate: 3px 3px;
-  box-shadow: 0 0 0 #000000;
-}
-
-.input-post {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.5rem;
-  --color-border: var(--color-accent-light);
-  border: 2px solid #ccc;
-  font-family: inherit;
-  display: block;
-}
-
-.input-post:focus {
-  outline: none;
-  border-color: #ccc;
+    translate: 3px 3px;
+    box-shadow: 0 0 0 #000000;
 }

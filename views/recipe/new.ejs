@@ -1,26 +1,31 @@
 <%- include('../partials/nav') %>
-<h2>Share your recipe with us 💫</h2>
-<form action="/recipes" method="post">
-    <label for="name">Name</label>
-    <input  type="text" name="name" id="name">
-    <br>
+<div class="add-posts">
+  <div class="head-post">share your recipe with us 💫</div>
+  <div class="content-post">
+    <form action="/recipes" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" class="input-post">
+      <br>
 
-    <label for="selectedFlavor">Flavor</label>
+      <label for="selectedFlavor">Flavor</label>
+      <select name="selectedFlavor" class="input-post">
+        <% findFlavor.forEach((item) => { %>
+          <option value="<%= item._id %>"><%= item.flavor %></option>
+        <% }) %>
+      </select>
+      <br>
 
-    <select name="selectedFlavor">
-            <% findFlavor.forEach((item) => {%>
-        <option value="<%=item._id%>"><%=item.flavor%></option>
+      <label for="description">Description</label>
+      <textarea name="description" id="description" class="input-post"></textarea>
+      <br>
 
- <%   }) %>
-    </select> 
-    <br>
-    <label for="description">Description</label>
-        <textarea name="description" id="description"></textarea>
-    <br>
-    <label for="rate">Rate</label>
-    <input type="Number" name="rate" id="rate" min="0" max="10">
-    <br>
-    <button type="submit">Add recipe</button>
+      <label for="rate">Rate</label>
+      <input type="number" name="rate" id="rate" min="0" max="10" class="input-post">
+      <br><br>
+
+      <button type="submit" class="post-button">Add recipe</button>
     </form>
+  </div>
+</div>
 </body>
 </html>
