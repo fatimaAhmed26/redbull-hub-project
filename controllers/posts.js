@@ -1,3 +1,4 @@
+const cloudinary = require('../config/cloudinary')
 const Recipe = require('./../models/recipe')
 const Redbull= require("./../models/redbull")
 const Post= require("./../models/post")
@@ -35,5 +36,5 @@ const create = async (req,res)=>{
 }
 module.exports={
     create,
-    
+
 }

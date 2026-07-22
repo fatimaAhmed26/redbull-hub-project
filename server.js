@@ -18,6 +18,7 @@ const recipeCtrl = require('./controllers/recipeController')
 const authCtrl = require('./controllers/auth');
 const upload = require('./config/multer')
 const commentCtrl = require("./controllers/comments")
+const postCtrl = require("./controllers/posts")
 
 
 // Set the port from environment variable or default to 3000
@@ -69,7 +70,8 @@ app.delete('/auth/sign-out', authCtrl.signOut)
 //     })
 // })
 app.get('/dashboard',isSignedIn,recipeCtrl.showRecipes)
-
+//posts routes
+app.post('/dashboard',isSignedIn,upload.single('image'),postCtrl.create)
 // redbull routes 
 app.get('/redbulls/new',isSignedIn,redbullCtrl.showNewForm)
 app.get ('/redbulls',isSignedIn,redbullCtrl.index)
@@ -88,7 +90,8 @@ app.get('/recipes/:id/edit',isSignedIn,recipeCtrl.edit)
 app.put('/recipes/:id',isSignedIn,recipeCtrl.update)
 // comments routes
 app.post('/recipes/:id/comments',isSignedIn, commentCtrl.create)
-
+//posts routes
+app.post('/dashboard',isSignedIn,postCtrl.create)
 
 app.get('/*splat', (req,res) => {
 res.render('error.ejs',{
