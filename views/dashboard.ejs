@@ -10,6 +10,19 @@
   <a href="/recipes/new">Add Recipe</a>     
 
    <% }%>
+   <div class="posts">
+    <h2>share your drink post</h2>
+    <form action="/dashborde" method="post">
+      <label for="image">Add Image</label>
+        <input type="file" name="image" id="image" accept="image/jpeg,image/png,image/webp" required>
+        <br>
+    <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea>
+        <br>
+        <button type="submit"> post</button>
+    <br>
+    </form>
+   </div>
 
    
 </body>
