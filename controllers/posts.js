@@ -34,8 +34,14 @@ const create = async (req,res)=>{
     let createPost= await Post.create(postData)
     res.redirect('/dashboard')
 }
-
+const showPosts= async (req,res)=>{
+    const allPosts = await Post.find().populate('owner')
+    res.render('posts.ejs',{
+        allPosts
+    })
+}
 module.exports={
     create,
+    showPosts,
 
 }

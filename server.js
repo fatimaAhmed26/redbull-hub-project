@@ -72,6 +72,7 @@ app.delete('/auth/sign-out', authCtrl.signOut)
 app.get('/dashboard',isSignedIn,recipeCtrl.showRecipes)
 //posts routes
 app.post('/dashboard',isSignedIn,upload.single('image'),postCtrl.create)
+app.get('/posts',postCtrl.showPosts)
 // redbull routes 
 app.get('/redbulls/new',isSignedIn,redbullCtrl.showNewForm)
 app.get ('/redbulls',isSignedIn,redbullCtrl.index)
